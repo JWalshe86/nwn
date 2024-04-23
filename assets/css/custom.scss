@@ -1,0 +1,134 @@
+@import 'globals';
+@import 'variables';
+@import 'mixins';
+@import url("https://fonts.googleapis.com/css2?family=Merienda:wght@800&family=Nosifer&family=Roboto&family=Spline+Sans:wght@400;500;600;700&display=swap");
+
+*, *::before, *::after {
+box-sizing: inherit;
+}
+
+// Navbar styling
+.navbar{
+
+    background-color: $primaryBackgroundColor;
+
+    &__logo__img{
+        height: 5rem;
+        min-width: 100%;
+    }
+
+    .collapse{
+        // anchor links styling
+                &__content {
+                    text-decoration: none;
+                    color: black !important;
+                    transition: all 0.4s;
+                    font-weight: $fontWeight;
+                    &:hover{
+                        background-color: $secondaryBackgroundColor;
+                        border-radius: 23px;
+                    }
+                }
+
+        // Order now button
+
+        &__btn-primary{
+            @include btnStyle();
+        
+        }
+    }
+}
+
+// Navbar styling end
+
+h1,h2,h3,h4,h5,h6{
+    font-weight: $fontWeight;
+    color: $textColor;
+}
+
+// hero section styling
+
+.carousel-inner{
+    a.btn.carousel{
+        &__btn-primary {
+            @include btnStyle();
+        }
+    }
+}
+
+.bg-cover{
+    @include backgroundStyling();
+}
+
+// Slider Styling
+
+.slide-1{
+    background: linear-gradient(rgba(0,0,0,0.3), #000), url(/assets/images/horse-box.jpg);
+}
+
+.slide-2{
+    background: linear-gradient(rgba(0,0,0,0.3), #000), url(/assets/images/pizza.jpg);
+}
+
+// #heroSlider h6::after,
+#heroSlider h6::before{
+    content: " ";
+    width: 25px;
+    height: 4px;
+    background-color: #ffffff;
+    display: inline-block;
+    margin: 5px;
+    vertical-align: middle;
+}
+
+.carousel-control-prev,
+.carousel-control-next{
+    background-color: rgba(0,0,0,0.9);
+    width: 10vw !important;
+    height: 70px;
+    margin: auto;
+}
+
+// hero section styling end
+
+// footer styling
+
+footer {
+    background-color: $primaryBackgroundColor;
+    padding-top: 5vh;
+    padding-bottom: 5vh;
+
+    .footer-bottom{
+        padding-top: 1vh;
+        border-top: 2px solid rgba(255, 255, 255, 0.4);
+    }
+
+    .footer-bottom a{
+        color: black;
+    }
+
+    .col-lg-4{
+
+        max-width: none !important;
+        margin-left: -17px;
+    
+        &__logo__img{
+            height: 5rem;
+        }
+    
+        &__social-links, a{
+            color: black;
+            font-weight: normal;
+            font-size: 5vh;
+            margin-left: -10px;
+            margin-right: 2vw;
+            text-decoration: none !important;
+        }
+
+        &__social-links:hover, a:hover{
+            color: $tertiaryBackgroundColor;
+        }
+    
+    }
+}
+
