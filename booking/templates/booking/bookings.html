@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <hr>
+<h1 id="bookings_header" class="">{{request.user}}'s Bookings</h1>
+
+    {% for booking in bookings %}
+    <ul class="border border-secondary rounded p-5">
+        <li>Date: {{booking.booking_date}}</li>
+        <li>Address: {{booking.location}}</li>
+        <li>Guest Numbers: {{booking.guest_number}}</li>
+        <li class="mb-5">Message: {{booking.message}}</li>
+        <a class="btn-primary text-decoration-none"  href="{% url 'update_booking' booking.id %}">Edit</a>
+        <a class="btn-warning text-decoration-none" href="{% url 'delete_booking' booking.id %}">Delete</a>
+    </ul>
+    {% empty %}
+    <h3>No items in list</h3>
+    {% endfor %}
+</div>
+
+
+{% endblock %}
